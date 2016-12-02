@@ -8,17 +8,18 @@
 
 <main>
 	<div class="row">
-		<div class="col-sm-4">
-			
- 			<user-form (userCreated)="onUserCreated($event)"></user-form>
+		<div class="col-sm-12">
+			<h2>
+				Template Form
+			</h2>
+			<template-form></template-form>			
+		</div>
+	</div>
 
-			<div *ngIf="users">
-				<ul class="list-group users-list">
-					<li class="list-group-item" *ngFor="let user of users" (click)="selectUser(user)" [class.active]="user === activeUser">
-						{{user.name}} ({{user.username}})
-					</li>
-				</ul>
-			</div>
+	<div class="row" *ngIf="true">		
+		<div class="col-sm-4">
+ 			<user-form (userCreated)="onUserCreated($event)"></user-form>
+			<user-list [users]="users" [activeUser]="activeUser" (userSelected)="onUserSelected($event)"></user-list>
 		</div>		
 		<div class="col-sm-8">
 			<user-profile [user]="activeUser"></user-profile>

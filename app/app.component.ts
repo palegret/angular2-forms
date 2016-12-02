@@ -17,8 +17,8 @@ export class AppComponent {
 
 	activeUser: User = null
 
-  selectUser(user: User) {
-    this.activeUser = user;
+  onUserSelected(event) {
+    this.activeUser = event.user;
   }
 
   onUserCreated(event) {

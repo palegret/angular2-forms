@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { UserListComponent } from './users/user-list.component';
 import { UserProfileComponent } from './users/user-profile.component';
 import { UserFormComponent } from './users/user-form.component';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 @NgModule({
   imports: [ 
@@ -13,7 +15,9 @@ import { UserFormComponent } from './users/user-form.component';
   declarations: [ 
     AppComponent,
     UserProfileComponent,
-    UserFormComponent
+    UserListComponent,
+    UserFormComponent,
+    TemplateFormComponent
   ],
   bootstrap: [ 
     AppComponent 
