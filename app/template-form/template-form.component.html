@@ -1,17 +1,33 @@
-<form>
+<div class="jumbotron text-center" *ngIf="submitted">
+	<h2>
+		Thanks for your submission!
+	</h2>
+	<p>
+		We appreciate it!
+	</p>
+</div>
 
-	<div class="form-group">
-		<label for="name">Name</label>
-		<input type="text" id="name" name="name" class="form-control" required>
+<form (ngSubmit)="processForm()" *ngIf="!submitted" #form="ngForm">
+
+	<div class="form-group" [ngClass]="validationClass(name)">
+		<label for="name" class="control-label sr-only">Name</label>
+		<input type="text" id="name" name="name" class="form-control" required [(ngModel)]="user.name" #name="ngModel" placeholder="Name">
+		<span class="help-block" *ngIf="invalid(name)">
+			Name is required.
+		</span>
+	</div>
+
+	<div class="form-group" [ngClass]="validationClass(username)">
+		<label for="username" class="control-label sr-only">Username</label>
+		<input type="text" id="username" name="username" class="form-control" required [(ngModel)]="user.username" #username="ngModel" placeholder="Username">
+		<span class="help-block" *ngIf="invalid(username)">
+			Username is required.
+		</span>
 	</div>
 
 	<div class="form-group">
-		<label for="name">Username</label>
-		<input type="text" id="username" name="username" class="form-control" required>
+		<button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save</button>
 	</div>
 
-	<div class="form-group">
-		<button type="submit" class="btn btn-primary">Save</button>
-	</div>
-
+	<pre>{{diagnostic}}</pre>
 </form>

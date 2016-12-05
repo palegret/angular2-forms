@@ -15,8 +15,15 @@
 			<template-form></template-form>			
 		</div>
 	</div>
-
-	<div class="row" *ngIf="true">		
+	<div class="row">
+		<div class="col-sm-12">
+			<h2>
+				Reactive Form
+			</h2>
+			<reactive-form></reactive-form>
+		</div>
+	</div>
+	<div class="row" *ngIf="false">
 		<div class="col-sm-4">
  			<user-form (userCreated)="onUserCreated($event)"></user-form>
 			<user-list [users]="users" [activeUser]="activeUser" (userSelected)="onUserSelected($event)"></user-list>
